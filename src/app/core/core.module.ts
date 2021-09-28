@@ -4,12 +4,19 @@ import { GabaritsPagesModule } from '../gabarits-pages/gabarits-pages.module';
 import { IconsModule } from '../icons/icons.module';
 import { LoginModule } from '../login/login.module';
 import { UiModule } from '../ui/ui.module';
+import { HeaderComponent } from './components/header/header.component';
+import { NavComponent } from './components/nav/nav.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    HeaderComponent,
+    NavComponent,
+    FooterComponent
+  ],
   imports: [
     CommonModule
   ],
@@ -17,7 +24,10 @@ import { UiModule } from '../ui/ui.module';
     UiModule,
     LoginModule,
     IconsModule,
-    GabaritsPagesModule
+    GabaritsPagesModule,
+    HeaderComponent,
+    NavComponent,
+    FooterComponent
   ]
 })
 export class CoreModule { }

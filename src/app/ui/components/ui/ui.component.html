@@ -1,8 +1,20 @@
 <header class="fixed-top">
+  <!-- utiliser la structure ngif then else -->
+  <span (click)="toggle()">
+    <div *ngIf="!open; then thenBlock; else elseBlock"></div>
+
+    <ng-template #thenBlock>
+      <ng-content select=".tr-btn-open"></ng-content>
+    </ng-template>
+    <ng-template #elseBlock>
+      <ng-content select=".tr-btn-close"></ng-content>
+    </ng-template>
+  </span>
+
   <!-- une instance de app-header dans le dom via une transclusion -->
   <ng-content select=".tr-header"></ng-content>
 </header>
-<main>
+<main [ngClass]="{'close-aside': !open}">
   <div class="shadow position-fixed">
 
   </div>

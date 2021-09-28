@@ -1,11 +1,17 @@
 @import "~src/stylings/layout";
 /// Description design of user interface
 header {
-  height: 65px;
+  height: 85px;
   background: var(--app-light);
   padding: 0 $gutter;
   display: flex;
   align-items: center;
+  -webkit-box-shadow: 1px 5px 14px -4px rgba(0, 0, 0, 0.35);
+  box-shadow: 1px 5px 14px -4px rgba(0, 0, 0, 0.35);
+
+  span {
+    width: 20px;
+  }
 }
 
 main {
@@ -15,7 +21,8 @@ main {
 }
 
 aside {
-  background: var(--app-darklight2);
+  background: var(--app-secondary);
+  border-right: 1px solid var(--app-tertiary);
   width: 250px;
   min-height: 100vh;
   position: fixed;

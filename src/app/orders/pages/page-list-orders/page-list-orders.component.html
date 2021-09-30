@@ -1,4 +1,15 @@
-<app-gabarit-container [title]="title">
+<app-gabarit-full-width [title]="title" *ngIf="collection">
   <!-- <button (click)="changeTitle()">change my title</button> -->
+  <app-table-light [headers]="headers">
+    <tr *ngFor="let item of collection">
+      <td>{{ item.type }}</td>
+      <td>{{ item.client }}</td>
+      <td>{{ item.nb_days }}</td>
+      <td>{{ item.tjm_ht }}</td>
+      <td>{{ total(item.tjm_ht, item.nb_days) }}</td>
+      <td>{{ total(item.tjm_ht, item.nb_days, item.taux_tva) }}</td>
+      <td>{{ item.state }}</td>
+    </tr>
+  </app-table-light>
   <app-btn route="add" text="Add order"></app-btn>
-</app-gabarit-container>
+</app-gabarit-full-width>

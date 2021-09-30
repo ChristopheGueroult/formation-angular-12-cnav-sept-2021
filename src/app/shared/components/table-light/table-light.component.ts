@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-table-light',
   templateUrl: './table-light.component.html',
-  styleUrls: ['./table-light.component.scss']
+  styleUrls: ['./table-light.component.scss'],
 })
 export class TableLightComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  @Input() headers!: string[];
+  constructor() {}
+  ngOnInit(): void {}
 }

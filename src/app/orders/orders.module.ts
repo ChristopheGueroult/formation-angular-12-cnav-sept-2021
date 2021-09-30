@@ -1,5 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { GabaritsPagesModule } from '../gabarits-pages/gabarits-pages.module';
+import { SharedModule } from '../shared/shared.module';
 import { OrdersRoutingModule } from './orders-routing.module';
 import { PageAddOrderComponent } from './pages/page-add-order/page-add-order.component';
 import { PageEditOrderComponent } from './pages/page-edit-order/page-edit-order.component';
@@ -11,6 +13,11 @@ import { PageListOrdersComponent } from './pages/page-list-orders/page-list-orde
     PageAddOrderComponent,
     PageEditOrderComponent,
   ],
-  imports: [CommonModule, OrdersRoutingModule],
+  imports: [
+    CommonModule,
+    OrdersRoutingModule,
+    SharedModule,
+    GabaritsPagesModule,
+  ],
 })
 export class OrdersModule {}

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-gabarit-container',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./gabarit-container.component.scss'],
 })
 export class GabaritContainerComponent implements OnInit {
-  public title: string;
+  @Input() title: string;
   constructor() {
     // mock title
     this.title = 'mon titre';

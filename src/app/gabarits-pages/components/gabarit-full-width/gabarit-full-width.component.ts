@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-gabarit-full-width',
@@ -6,10 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./gabarit-full-width.component.scss'],
 })
 export class GabaritFullWidthComponent implements OnInit {
-  public title: string;
-  constructor() {
-    this.title = 'un super titre';
-  }
+  @Input() title!: string;
+  constructor() {}
 
   ngOnInit(): void {}
 }

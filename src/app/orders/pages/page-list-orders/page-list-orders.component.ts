@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StateOrder } from 'src/app/core/enums/state-order';
 import { Order } from 'src/app/core/models/order';
 import { OrdersService } from 'src/app/core/services/orders.service';
 
@@ -11,6 +12,7 @@ export class PageListOrdersComponent implements OnInit {
   public title = 'List orders';
   public headers: string[];
   public collection!: Order[];
+  public states = Object.values(StateOrder);
   constructor(private ordersService: OrdersService) {
     this.ordersService.collection.subscribe((data) => {
       this.collection = data;
@@ -28,14 +30,5 @@ export class PageListOrdersComponent implements OnInit {
   ngOnInit(): void {}
   changeTitle(): void {
     this.title = 'My new title';
-  }
-
-  public total(val: number, coef: number, tva?: number): number {
-    console.log('total called');
-
-    if (tva) {
-      return val * coef * (1 + tva / 100);
-    }
-    return val * coef;
   }
 }

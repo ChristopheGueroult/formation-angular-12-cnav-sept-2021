@@ -1,36 +1,25 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { AbstractErrorHandler } from '../abstract/abstract-error-handler';
 import { Order } from '../models/order';
 
 @Injectable({
   providedIn: 'root',
 })
-export class OrdersService {
-  // private obs = new Observable((subscribers) => {
-  //   subscribers.next(Math.random());
-  // });
-  // private subject = new BehaviorSubject(Math.random());
-  // property collection
+export class OrdersService extends AbstractErrorHandler {
   private collection$!: Observable<Order[]>;
   private urlApi = environment.urlApi;
   constructor(private http: HttpClient) {
-    console.log('orders service instancied');
-    this.collection = this.http.get<Order[]>(`${this.urlApi}/orders`);
-
-    // this.obs.subscribe((data) => {
-    //   console.log(data);
-    // });
-    // this.obs.subscribe((data) => {
-    //   console.log(data);
-    // });
-    // this.subject.subscribe((data) => {
-    //   console.log(data);
-    // });
-    // this.subject.subscribe((data) => {
-    //   console.log(data);
-    // });
+    super();
+    this.collection = this.http.get<Order[]>(`${this.urlApi}/orders`).pipe(
+      tap((flux) => {
+        console.log(flux);
+      }),
+      catchError(this.handleError)
+    );
   }
 
   // get collection

@@ -8,7 +8,8 @@
     "buildProd": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "jsonServer": "json-server --watch mock_db/db.json"
+    "jsonServer": "json-server --watch mock_db/db.json",
+    "compodoc": "compodoc -p tsconfig.json -o -s"
   },
   "private": true,
   "dependencies": {
@@ -35,6 +36,7 @@
     "@angular-devkit/build-angular": "~12.2.3",
     "@angular/cli": "~12.2.3",
     "@angular/compiler-cli": "~12.2.0",
+    "@compodoc/compodoc": "^1.1.15",
     "@types/jasmine": "~3.8.0",
     "@types/node": "^12.11.1",
     "jasmine-core": "~3.8.0",

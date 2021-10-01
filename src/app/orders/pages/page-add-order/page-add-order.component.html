@@ -1,1 +1,4 @@
-<p>page-add-order works!</p>
+<app-gabarit-container title="Add Order">
+  <!-- ici les elements seront projectés à la place du ng-content qui se trouve sur gabarit container html  -->
+  <app-form-order (submited)="action($event)"></app-form-order>
+</app-gabarit-container>

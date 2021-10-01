@@ -19,6 +19,16 @@
       "nb_days": 1,
       "tjm_ht": 1200,
       "state": "OPTION"
+    },
+    {
+      "taux_tva": 20,
+      "nb_days": 1,
+      "tjm_ht": 1200,
+      "state": "OPTION",
+      "id": 3,
+      "type": "dfv",
+      "client": "sdfg",
+      "comment": "sdfg"
     }
   ],
   "clients": [

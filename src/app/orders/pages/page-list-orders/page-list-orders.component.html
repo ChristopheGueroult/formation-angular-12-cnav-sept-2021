@@ -1,15 +1,16 @@
 <app-gabarit-full-width [title]="title" *ngIf="collection">
   <!-- <button (click)="changeTitle()">change my title</button> -->
+  <!-- {{ collection | json }} -->
   <app-table-light [headers]="headers">
     <tr *ngFor="let item of collection">
       <td>{{ item.type }}</td>
-      <td>{{ item.client }}</td>
+      <td>{{ item.client | uppercase }}</td>
       <td>{{ item.nb_days }}</td>
-      <td>{{ item.tjm_ht }}</td>
-      <td>{{ item.tjm_ht | total: item.nb_days }}</td>
-      <td>{{ item.tjm_ht | total: item.nb_days: item.taux_tva }}</td>
+      <td>{{ item.tjm_ht | currency }}</td>
+      <td>{{ item.tjm_ht | total: item.nb_days | currency }}</td>
+      <td>{{ item.tjm_ht | total: item.nb_days: item.taux_tva | currency }}</td>
       <td>
-        <select>
+        <select (change)="changeState(item, $event)">
           <option *ngFor="let state of states" [value]="state" [selected]="state === item.state">{{ state }}
           </option>
           <!-- <option value="CANCELED">CANCELED</option>

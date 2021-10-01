@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { AbstractErrorHandler } from '../abstract/abstract-error-handler';
+import { StateOrder } from '../enums/state-order';
 import { Order } from '../models/order';
 
 @Injectable({
@@ -33,8 +34,18 @@ export class OrdersService extends AbstractErrorHandler {
   }
 
   // change state item
+  public changeState(item: Order, state: StateOrder): Observable<Order> {
+    const obj = new Order(item);
+    obj.state = state;
+    return this.update(obj);
+  }
 
   // update item in collection
+  public update(item: Order): Observable<Order> {
+    return this.http
+      .put<Order>(`${this.urlApi}/orders/${item.id}`, item)
+      .pipe(catchError(this.handleError));
+  }
 
   // add item in collection
   public add(item: Order): Observable<Order> {

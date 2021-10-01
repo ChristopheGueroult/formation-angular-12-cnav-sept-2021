@@ -1,4 +1,4 @@
-<app-gabarit-full-width [title]="title" *ngIf="collection">
+<app-gabarit-full-width [title]="title" *ngIf="collection$ | async as collection">
   <!-- <button (click)="changeTitle()">change my title</button> -->
   <!-- {{ collection | json }} -->
   <app-table-light [headers]="headers">
